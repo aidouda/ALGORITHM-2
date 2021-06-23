@@ -1,0 +1,126 @@
+ALGORITHM different integer
+VAR
+array 1:ARRAY _OF INTEGER [l];
+array 2:ARRAY _OF INTEGER [m];
+ array 3:ARRAY _OF INTEGER [n];
+i,j,z: INTEGER;
+s:INTEGER;
+BEGIN
+Write ("what is your array 1 length : ")
+          read (L);
+write ("what is your array  2 length : ")
+          read (m);
+
+FOR i  FROM 0 to array 1 length -1 STEP 1 DO
+FOR j FROM 0 to  array 2 length-1 STEP 1 DO
+k:=0
+IF array 1[i]<>array 2[j]
+array 3[k]=array 1[i]
+Write (array 3[k])
+k:=k+1;
+END-FOR
+END-FOR
+s:=0
+FOR k FROM 0 to array 1 length -1 STEP 1 DO
+s:=s+array 3[k];
+END-FOR
+write(" somme is" s)
+END
+
+ALGORITHM :diffrenent integer
+VAR
+set1:ARRAY _OF INTEGER [l];
+set2::ARRAY _OF INTEGER [m];
+i,j:INTEGER;
+s:INTEGER;
+count:INTEGER;
+htab : HASH_TABLE<INTEGER,INTEGER>;
+BEGIN
+Write ("what is your set 1 length : ")
+          read (L);
+write ("what is your set 2 length : ")
+          read (m);
+s:=0
+FOR i FROM 0 TO set1.length -1 STEP 1  DO
+htab.insert(set1[i],1);
+FOR j FROM 0 TO set2.length -1 STEP 1  DO
+ 
+  if htab.lookup(set2[j])=false) then
+   count := htab.get(set1[i],1);
+   htab.insert(set2[j],1)
+  s:= s+set1[i]+set2[j]
+  ELSE
+  htab..insert(set2[j],count+1)
+  END -IF
+  END-FOR;
+  END-FOR;
+   Write(htab);
+ write(" somme is" s) ;
+   END 
+   
+
+// ALGO 2
+ALGORITHM identique integer
+VAR
+array 1:ARRAY _OF INTEGER [l];
+array 2:ARRAY _OF INTEGER [m];
+array 3:ARRAY _OF INTEGER [n];
+i,j,z: INTEGER;
+s:INTEGER=0;
+BEGIN
+Write ("what is your array 1 length : ")
+          read (L);
+Write ("what is your array 2 length : ")
+          read (m);
+
+
+FOR i  FROM 0 to array 1 length -1 STEP 1 DO
+FOR j FROM 0 to  array 2 length-1 STEP 1 DO
+k:=0
+IF array 1[i]=array 2[j]
+array 3[k]=array 1[i]
+Write (array 3[k])
+k:=k+1;
+END-FOR
+END-FOR
+s:=0
+FOR  K FROM 0 to array 3 length -1 STEP 1 DO
+
+s:=s+array 3[k];
+END-FOR
+ write(" somme is" s)
+
+END
+
+// 2eme methode with hach table 
+ALGORITHM identique integer
+VAR
+set1:ARRAY _OF INTEGER [l];
+set2::ARRAY _OF INTEGER [m];
+i,j:INTEGER;
+s:INTEGER;
+count:INTEGER;
+htab : HASH_TABLE<INTEGER,INTEGER>;
+
+BEGIN 
+Write ("what is your set 1 length : ")
+          read (L);
+write ("what is your set 2 length : ")
+          read (m);
+FOR i FROM 0 TO set1.length -1 STEP 1  DO
+htab.insert(set1[i],1);
+FOR j FROM 0 TO set2.length -1 STEP 1  DO
+ 
+  if htab.lookup(set2[j])=true) then
+   count := htab.get(set1[i]);
+   htab.insert(set2[j],count+1)
+  s:=s+set2[j]+set1[j]
+  ELSE
+  htab.insert(set2[j],1)
+  END-IF
+  END-FOR;
+  END-FOR;
+   Write(htab);
+   write(" somme is" s)
+END
+  
